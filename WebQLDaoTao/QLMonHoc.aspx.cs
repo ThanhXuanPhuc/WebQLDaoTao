@@ -88,5 +88,11 @@ namespace WebQLDaoTao
                 Response.Write("<script> alert('Không thể xóa môn học này')</script>");
             }
         }
+
+        protected void gvMonHoc_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvMonHoc.PageIndex = e.NewPageIndex;
+            NapDuLieu();
+        }
     }
 }

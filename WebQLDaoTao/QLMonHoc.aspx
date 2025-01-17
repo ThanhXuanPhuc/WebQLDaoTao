@@ -42,8 +42,7 @@
         </div>
     </div>
     <div>
-        <asp:GridView ID="gvMonHoc" runat="server" DataKeyNames="MaMH"
-            AutoGenerateColumns="False" CssClass="table table-bordered table-hover" OnRowEditing="gvMonHoc_RowEditing" OnRowCancelingEdit="gvMonHoc_RowCancelingEdit" OnRowUpdating="gvMonHoc_RowUpdating" OnRowDeleting="gvMonHoc_RowDeleting">
+        <asp:GridView ID="gvMonHoc" runat="server" DataKeyNames="MaMH" AutoGenerateColumns="False" CssClass="table table-bordered table-hover" OnRowEditing="gvMonHoc_RowEditing" OnRowCancelingEdit="gvMonHoc_RowCancelingEdit" OnRowUpdating="gvMonHoc_RowUpdating" AllowPaging="True"  OnPageIndexChanging="gvMonHoc_PageIndexChanging" OnRowDeleting="gvMonHoc_RowDeleting" PageSize="5" HorizontalAlign="Center">
             <Columns>
                 <asp:BoundField HeaderText="Mã môn học" DataField="MaMH" ReadOnly="true" />
                 <asp:BoundField HeaderText="Tên môn học" DataField="TenMH" />
