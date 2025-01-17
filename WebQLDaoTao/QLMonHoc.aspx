@@ -3,35 +3,54 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
-    <h2>QUẢN LÝ MÔN HỌC</h2>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
+    <h3>Thiết kế nội dung trang quản lý môn học</h3>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm mới môn học</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thêm mới môn học</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Mã môn</label>
+                        <asp:TextBox ID="txtMaMH" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên môn</label>
+                        <asp:TextBox ID="txtTenMH" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Số tiết</label>
+                        <asp:TextBox ID="txtSoTiet" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <asp:Button ID="btThem" runat="server" Text="Thêm" OnClick="btThem_Click" CssClass="btn btn-success"></asp:Button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
         </div>
-        <div class="col-md-8">
-            <h4>DANH SÁCH MÔN HỌC</h4>
-            <asp:GridView CssClass="table table-bordered" ID="gvMonhoc" runat="server" AutoGenerateColumns="false" DataKeyNames="MaMH" OnRowEditing="gvMonhoc_RowEditing" OnRowUpdating="gvMonhoc_RowUpdating">
-                <Columns>
-                    <asp:BoundField HeaderText="Mã môn học" DataField="MaMH" />
-                    <asp:BoundField HeaderText="Tên môn học" DataField="TenMH" />
-                    <asp:BoundField HeaderText="Số tiết" DataField="SoTiet" />
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Button ID="btEdit" CommandName="Edit" runat="server" Text="Sửa"
-                                CssClass="btn btn-success" />
-                            <asp:Button ID="btDelete" CommandName="Delete" runat="server"
-                                Text="Xóa" CssClass="btn btn-danger" />
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:Button ID="btUpdate" CommandName="Update" runat="server"
-                                Text="Ghi" CssClass="btn btn-success" />
-                            <asp:Button ID="btCancel" CommandName="Cancel" runat="server"
-                                Text="Không" CssClass="btn btn-danger" />
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <HeaderStyle BackColor="#003399" ForeColor="#ffffff" />
-            </asp:GridView>
-        </div>
+    </div>
+    <div>
+        <asp:GridView ID="gvMonHoc" runat="server" DataKeyNames="MaMH"
+            AutoGenerateColumns="False" CssClass="table table-bordered table-hover" OnRowEditing="gvMonHoc_RowEditing" OnRowCancelingEdit="gvMonHoc_RowCancelingEdit" OnRowUpdating="gvMonHoc_RowUpdating" OnRowDeleting="gvMonHoc_RowDeleting">
+            <Columns>
+                <asp:BoundField HeaderText="Mã môn học" DataField="MaMH" ReadOnly="true" />
+                <asp:BoundField HeaderText="Tên môn học" DataField="TenMH" />
+                <asp:BoundField HeaderText="Số tiết" DataField="SoTiet" />
+                <asp:CommandField HeaderText="Chọn tác vụ" ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" EditText="Sửa" DeleteText="Xoá" />
+            </Columns>
+            <HeaderStyle BackColor="#0066cc" ForeColor="#ffffff" />
+        </asp:GridView>
     </div>
 </asp:Content>

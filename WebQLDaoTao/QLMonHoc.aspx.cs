@@ -13,40 +13,80 @@ namespace WebQLDaoTao
         MonHocDAO mhDAO = new MonHocDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
-                KhoiTaoDuLieu();
+                NapDuLieu();
             }
         }
 
-        private void KhoiTaoDuLieu()
+        private void NapDuLieu()
         {
-            gvMonhoc.DataSource = mhDAO.getAll();
-            gvMonhoc.DataBind();
+            gvMonHoc.DataSource = mhDAO.getAll();
+            gvMonHoc.DataBind();
         }
 
-        protected void gvMonhoc_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void gvMonHoc_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            //b1. lấy thông tin môn học
-            string mamh = gvMonhoc.DataKeys[e.RowIndex].Value.ToString();
-            string tenmh = ((TextBox)gvMonhoc.Rows[e.RowIndex].Cells[1].Controls[0]).Text;
-            int sotiet = int.Parse(((TextBox)gvMonhoc.Rows[e.RowIndex].Cells[2].Controls[0]).Text);
-            //b2. cap nhat vao CSDL
-            mhDAO.Update(mamh, tenmh, sotiet);
-            //b3. chuyen doi trang thai cua dong hien hanh : từ chế độ sửa(edit) sang chế độ xem
-            gvMonhoc.EditIndex = -1;
-            //b4. lien ket lai du lieu cho gvMonHoc
-            gvMonhoc.DataSource = mhDAO.getAll();
-            gvMonhoc.DataBind();
+            gvMonHoc.EditIndex = e.NewEditIndex;
+            NapDuLieu();
         }
 
-        protected void gvMonhoc_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void gvMonHoc_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            //chuyen doi trang thai cua dong hien hanh : từ chế độ xem sang chế độ sửa
-            gvMonhoc.EditIndex = e.NewEditIndex;
-            //lien ket lai du lieu cho gvMonHoc
-            gvMonhoc.DataSource = mhDAO.getAll();
-            gvMonhoc.DataBind();
+            gvMonHoc.EditIndex = -1;
+            NapDuLieu();
+        }
+
+        protected void gvMonHoc_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            //lay manh
+            string mamh = gvMonHoc.DataKeys[e.RowIndex].Value.ToString();
+            //lay tenmh
+            string tenmh = ((TextBox)gvMonHoc.Rows[e.RowIndex].Cells[1].Controls[0]).Text;
+            //lay sotiet
+            int sotiet = int.Parse(((TextBox)gvMonHoc.Rows[e.RowIndex].Cells[2].Controls[0]).Text);
+            //goi thu vien DAO de cap nhat mon hoc
+            MonHoc mh = new MonHoc { MaMH = mamh, TenMH = tenmh, SoTiet = sotiet };
+            mhDAO.Update(mh);
+            //chuyen trang thai cho gvMonHoc
+            gvMonHoc.EditIndex = -1;
+            //nap lai du lieu cho gvMonHoc
+            NapDuLieu();
+        }
+
+        protected void btThem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Lấy thông tin môn học cần thêm
+                string mamh = txtMaMH.Text;
+                string tenmh = txtTenMH.Text;
+                int sotiet = int.Parse(txtSoTiet.Text);
+                //Tạo đối tượng môn học
+                //gọi phương thức insert của tầng DAO
+                mhDAO.Insert(mamh,tenmh, sotiet);
+                //Load lại dữ liệu cho GridView
+                NapDuLieu();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        protected void gvMonHoc_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                string mamh = gvMonHoc.DataKeys[e.RowIndex].Value.ToString();
+                mhDAO.Delete(mamh);
+                gvMonHoc.DataSource = mhDAO.getAll();
+                gvMonHoc.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script> alert('Không thể xóa môn học này')</script>");
+            }
         }
     }
 }
