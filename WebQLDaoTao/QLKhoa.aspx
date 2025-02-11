@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <asp:GridView ID="gvKhoa" runat="server" AutoGenerateColumns="False" DataSourceID="ods_Khoa"
+    <asp:GridView ID="gvKhoa" runat="server" AutoGenerateColumns="False" DataSourceID="ods_Khoa" DataKeyNames="MaKH"
         CssClass="table table-bordered table-hover">
         <Columns>
 
@@ -49,14 +49,16 @@
     </asp:GridView>
 
 <asp:ObjectDataSource ID="ods_Khoa" runat="server"
-    DataObjectTypeName="WebQLDaoTao.Models.Khoa"
-    DeleteMethod="Delete" 
-    InsertMethod="Insert"
-    SelectMethod="getAll"
     TypeName="WebQLDaoTao.Models.KhoaDAO"
-    UpdateMethod="Update">
+    DataObjectTypeName="WebQLDaoTao.Models.Khoa"
+    SelectMethod="getAll"   
+    InsertMethod="Insert"
+    UpdateMethod="Update"
+    DeleteMethod="Delete">
     <DeleteParameters>
-        <asp:Parameter Name="makh" Type="String" />
+        <asp:Parameter Name="MaKH" Type="String" />
     </DeleteParameters>
 </asp:ObjectDataSource>
+
+
 </asp:Content>
