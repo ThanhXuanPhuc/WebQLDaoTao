@@ -35,13 +35,21 @@ namespace WebQLDaoTao.Models
         }
         public int Insert(Khoa kh)
         {
-            SqlConnection conn = new
-            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("insert into Khoa(makh, tenkh) values(@makh,@tenkh)", conn);
-            cmd.Parameters.AddWithValue("@makh", kh.MaKH);
-            cmd.Parameters.AddWithValue("@tenkh", kh.TenKH);
-            return cmd.ExecuteNonQuery();
+            try
+            {
+                SqlConnection conn = new
+                SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("insert into Khoa(makh, tenkh) values(@makh,@tenkh)", conn);
+                cmd.Parameters.AddWithValue("@makh", kh.MaKH);
+                cmd.Parameters.AddWithValue("@tenkh", kh.TenKH);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            
         }
         public int Delete(Khoa kh)
         {

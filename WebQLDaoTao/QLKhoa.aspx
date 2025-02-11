@@ -43,7 +43,20 @@
             <asp:BoundField DataField="MaKH" HeaderText="MaKH" SortExpression="MaKH" ReadOnly="true"/>
             <asp:BoundField DataField="TenKH" HeaderText="TenKH" SortExpression="TenKH" />
 
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:TemplateField HeaderText="Chọn tác vụ">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="btSua" runat="server" Text="Sửa" CommandName="Edit">
+                            <i class="bi bi-pencil"></i>
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="btXoa" OnClientClick="return confirm('Bạn có muốn xóa môn học này không?')" runat="server" Text="Xóa" CommandName="Delete">
+                            <i class="bi bi-trash"></i>
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:Button ID="btUpdate" CssClass="btn btn-success" runat="server" Text="Ghi" CommandName="Update" />
+                        <asp:Button ID="btCancel" CssClass="btn btn-warning" runat="server" Text="Bỏ qua" CommandName="Cancel" />
+                    </EditItemTemplate>
+                </asp:TemplateField>
 
         </Columns>
     </asp:GridView>
