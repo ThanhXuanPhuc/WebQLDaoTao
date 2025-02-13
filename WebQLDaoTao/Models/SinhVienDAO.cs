@@ -57,8 +57,7 @@ namespace WebQLDaoTao.Models
             SqlConnection conn = new
             SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
             conn.Open();
-            SqlCommand cmd = new SqlCommand("update sinhvien set hosv=@hosv, tensv=@tensv, gioitinh=@gioitinh," +
-                "ngaysinh = @ngaysinh, noisinh = @noisinh, diachi = @diachi, makh = @makh where masv = @masv", conn);
+            SqlCommand cmd = new SqlCommand("update sinhvien set hosv=@hosv, tensv=@tensv, gioitinh=@gioitinh," + "ngaysinh = @ngaysinh, noisinh = @noisinh, diachi = @diachi, makh = @makh where masv = @masv", conn);
             cmd.Parameters.AddWithValue("@masv", sv.MaSV);
             cmd.Parameters.AddWithValue("@hosv", sv.HoSV);
             cmd.Parameters.AddWithValue("@tensv", sv.TenSV);
