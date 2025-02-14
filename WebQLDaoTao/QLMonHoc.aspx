@@ -64,8 +64,12 @@
                         </asp:LinkButton>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:Button ID="btUpdate" CssClass="btn btn-success" runat="server" Text="Ghi" CommandName="Update" />
-                        <asp:Button ID="btCancel" CssClass="btn btn-warning" runat="server" Text="Bỏ qua" CommandName="Cancel" />
+                        <asp:LinkButton ID="btUpdate" runat="server" Text="Ghi" CommandName="Update">
+                            <i class="bi bi-floppy-fill"></i>
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="btCancel" runat="server" Text="Bỏ qua" CommandName="Cancel">
+                            <i class="bi bi-x-circle-fill"></i>
+                        </asp:LinkButton>
                     </EditItemTemplate>
                 </asp:TemplateField>
             </Columns>
