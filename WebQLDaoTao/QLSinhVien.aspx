@@ -76,13 +76,19 @@
                 <asp:BoundField DataField="NgaySinh" HeaderText="Ngày sinh" DataFormatString="{0: dd/MM/yyyy}" SortExpression="NgaySinh" />
                 <asp:BoundField DataField="NoiSinh" HeaderText="Nơi sinh" SortExpression="NoiSinh" />
                 <asp:BoundField DataField="DiaChi" HeaderText="Địa chỉ" SortExpression="DiaChi" />
-                <asp:TemplateField HeaderText="Mã khoa">
-                    <ItemTemplate>
-                        <asp:Label ID="lbMakh" runat="server" Text='<%# Eval("Makh") %>'></asp:Label>
-                    </ItemTemplate>
+
+                <asp:TemplateField HeaderText="Khoa">
                     <EditItemTemplate>
-                        <asp:DropDownList ID="ddlKhoa" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="makh" runat="server" DataSourceID="odsKhoa" DataTextField="TenKH"
+                            DataValueField="MaKH"
+                            SelectedValue='<%# Bind("MaKH") %>'>
+                        </asp:DropDownList>
                     </EditItemTemplate>
+                    <ItemTemplate>
+                        <%# Eval("Makh") %>
+                        
+                    </ItemTemplate>
+                    
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Chọn tác vụ">
@@ -113,7 +119,12 @@
         DeleteMethod="Delete"
         InsertMethod="Insert"
         SelectMethod="getAll"
-
         TypeName="WebQLDaoTao.Models.SinhVienDAO"
         UpdateMethod="Update"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsKhoa" runat="server"
+        SelectMethod="getAll"
+        TypeName="WebQLDaoTao.Models.KhoaDAO">
+
+    </asp:ObjectDataSource>
+
 </asp:Content>
