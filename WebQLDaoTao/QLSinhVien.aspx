@@ -72,7 +72,19 @@
                 <asp:BoundField DataField="MaSV" HeaderText="Mã sinh viên" SortExpression="MaSV" ReadOnly="true" />
                 <asp:BoundField DataField="HoSV" HeaderText="Họ sinh viên" SortExpression="HoSV" />
                 <asp:BoundField DataField="TenSV" HeaderText="Tên sinh viên" SortExpression="TenSV" />
-                <asp:CheckBoxField DataField="GioiTinh" HeaderText="Giới tính" />
+
+                <asp:TemplateField HeaderText="Phái">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="gioitinh" runat="server" SelectedValue='<%# Bind("gioitinh") %>'>
+                            <asp:ListItem Text="Nam" Value="True"></asp:ListItem>
+                            <asp:ListItem Text="Nữ" Value="False"></asp:ListItem>
+                        </asp:DropDownList>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <%# (bool)Eval("gioitinh")?"Nam":"Nữ" %>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:BoundField DataField="NgaySinh" HeaderText="Ngày sinh" DataFormatString="{0: dd/MM/yyyy}" SortExpression="NgaySinh" />
                 <asp:BoundField DataField="NoiSinh" HeaderText="Nơi sinh" SortExpression="NoiSinh" />
                 <asp:BoundField DataField="DiaChi" HeaderText="Địa chỉ" SortExpression="DiaChi" />
@@ -86,9 +98,8 @@
                     </EditItemTemplate>
                     <ItemTemplate>
                         <%# Eval("Makh") %>
-                        
                     </ItemTemplate>
-                    
+
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Chọn tác vụ">
@@ -123,8 +134,6 @@
         UpdateMethod="Update"></asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsKhoa" runat="server"
         SelectMethod="getAll"
-        TypeName="WebQLDaoTao.Models.KhoaDAO">
-
-    </asp:ObjectDataSource>
+        TypeName="WebQLDaoTao.Models.KhoaDAO"></asp:ObjectDataSource>
 
 </asp:Content>
