@@ -8,63 +8,61 @@
     <asp:Panel ID="Panel1" runat="server" ScrollBars="Both">
 
 
-        <div class="form-horizontal">
-            <div class="form-group">
-                <label class="control-label col-md-2">Mã sinh viên</label>
-                <div class="col-md-2">
-                    <asp:TextBox ID="txtMaSV" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-2">Họ sinh viên</label>
-                <div class="col-md-2">
-                    <asp:TextBox ID="txtHoSv" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-                <label class="control-label col-md-2">Tên sinh viên</label>
-                <div class="col-md-2">
-                    <asp:TextBox ID="txtTenSV" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-2">Giới tính</label>
-                <div class="col-md-4">
-                    <asp:RadioButton ID="rdNam" runat="server" Text="Nam" CssClass="radio-inline" Checked="true"
-                        GroupName="GT" />
-                    <asp:RadioButton ID="rdNu" runat="server" Text="Nữ" CssClass="radio-inline" GroupName="GT" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-2">Ngày sinh</label>
-                <div class="col-md-4">
-                    <asp:TextBox ID="txtNgaysinh" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm mới sinh viên</button>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thêm mới sinh viên</h4>
                 </div>
-                <label class="control-label col-md-2">Nơi sinh</label>
-                <div class="col-md-4">
-                    <asp:TextBox ID="txtNoiSinh" runat="server" CssClass="form-control"></asp:TextBox>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Mã sinh viên</label>
+                        <asp:TextBox ID="txtMaSV" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-inline">
+                        <label>Họ sinh viên</label>
+                        <asp:TextBox ID="txtHoSV" runat="server" CssClass="form-control" Width="100px"></asp:TextBox>
+                         <label>Tên sinh viên</label>
+                        <asp:TextBox ID="txtTenSv" runat="server" CssClass="form-control" Width="50px"></asp:TextBox>
+                    </div>
+                    <div class="form-inline">
+                        <label>Phái</label>
+                        <asp:RadioButton ID="rdNam" runat="server" Text="Nam" GroupName="GT" Checked="true" />
+                         <asp:RadioButton ID="rdNu" runat="server" Text="Nữ" GroupName="GT" Checked="true" />
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày sinh</label>
+                        <asp:TextBox ID="txtNgaysinh" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Nơi sinh</label>
+                        <asp:TextBox ID="txtNoiSinh" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <asp:TextBox ID="txtDiaChi" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Chọn khoa</label>
+                        <asp:DropDownList ID="ddlKhoa" runat="server" CssClass="form-control"
+                            DataSourceID="odsKhoa" DataTextField="tenkh" DataValueField="makh">
+                            </asp:DropDownList>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <asp:Button ID="btThem" runat="server" Text="Lưu" OnClick="btXuLy_Click" CssClass="btn btn-success"></asp:Button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-md-2">Địa chỉ</label>
-                <div class="col-md-4">
-                    <asp:TextBox ID="txtDiaChi" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-2">Chọn khoa</label>
-                <div class="col-md-4">
-                    <asp:DropDownList ID="ddlMaKhoa" runat="server" CssClass="form-control"></asp:DropDownList>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-2"></label>
-                <div class="col-md-4">
-                    <asp:Button ID="btThem" runat="server" Text="Thêm Mới" CssClass="btn btn-success" />
-                </div>
-            </div>
+
         </div>
-        <div>
-        </div>
+    </div>
 
         <asp:GridView ID="gvSinhVien" runat="server" AutoGenerateColumns="false" DataSourceID="ods_SinhVien" DataKeyNames="MaSV"
             CssClass="table table-bordered table-hover" AllowPaging="True">

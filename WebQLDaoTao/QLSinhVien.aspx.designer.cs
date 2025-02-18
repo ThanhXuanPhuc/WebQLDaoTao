@@ -33,22 +33,22 @@ namespace WebQLDaoTao
         protected global::System.Web.UI.WebControls.TextBox txtMaSV;
 
         /// <summary>
-        /// txtHoSv control.
+        /// txtHoSV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoSv;
+        protected global::System.Web.UI.WebControls.TextBox txtHoSV;
 
         /// <summary>
-        /// txtTenSV control.
+        /// txtTenSv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTenSV;
+        protected global::System.Web.UI.WebControls.TextBox txtTenSv;
 
         /// <summary>
         /// rdNam control.
@@ -96,13 +96,13 @@ namespace WebQLDaoTao
         protected global::System.Web.UI.WebControls.TextBox txtDiaChi;
 
         /// <summary>
-        /// ddlMaKhoa control.
+        /// ddlKhoa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMaKhoa;
+        protected global::System.Web.UI.WebControls.DropDownList ddlKhoa;
 
         /// <summary>
         /// btThem control.
