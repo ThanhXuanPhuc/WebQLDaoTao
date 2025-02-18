@@ -77,5 +77,16 @@ namespace WebQLDaoTao.Models
             cmd.Parameters.AddWithValue("@masv", sv.MaSV);
             return cmd.ExecuteNonQuery();
         }
+        public bool KiemTraTonTai(SinhVien sv)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM SinhVien WHERE MaSV = @MaSV", conn);
+            cmd.Parameters.AddWithValue("@MaSV", sv.MaSV);
+            int count = (int)cmd.ExecuteScalar();
+            conn.Close();
+            return count > 0;
+        }
+
     }
 }
