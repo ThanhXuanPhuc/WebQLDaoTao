@@ -65,11 +65,11 @@
     </div>
 
         <asp:GridView ID="gvSinhVien" runat="server" AutoGenerateColumns="false" DataSourceID="ods_SinhVien" DataKeyNames="MaSV"
-            CssClass="table table-bordered table-hover" AllowPaging="True">
+            CssClass="table table-bordered table-hover" AllowPaging="True" >
             <Columns>
                 <asp:BoundField DataField="MaSV" HeaderText="Mã sinh viên" SortExpression="MaSV" ReadOnly="true" />
-                <asp:BoundField DataField="HoSV" HeaderText="Họ sinh viên" SortExpression="HoSV" />
-                <asp:BoundField DataField="TenSV" HeaderText="Tên sinh viên" SortExpression="TenSV" />
+                <asp:BoundField DataField="HoSV" HeaderText="Họ sinh viên" SortExpression="HoSV" ControlStyle-Width="120px"/>
+                <asp:BoundField DataField="TenSV" HeaderText="Tên sinh viên" SortExpression="TenSV" ControlStyle-Width="70px"/>
 
                 <asp:TemplateField HeaderText="Phái">
                     <EditItemTemplate>
@@ -84,8 +84,8 @@
                 </asp:TemplateField>
 
                 <asp:BoundField DataField="NgaySinh" HeaderText="Ngày sinh" DataFormatString="{0: dd/MM/yyyy}" SortExpression="NgaySinh" />
-                <asp:BoundField DataField="NoiSinh" HeaderText="Nơi sinh" SortExpression="NoiSinh" />
-                <asp:BoundField DataField="DiaChi" HeaderText="Địa chỉ" SortExpression="DiaChi" />
+                <asp:BoundField DataField="NoiSinh" HeaderText="Nơi sinh" SortExpression="NoiSinh" ControlStyle-Width="80px"/>
+                <asp:BoundField DataField="DiaChi" HeaderText="Địa chỉ" SortExpression="DiaChi" ControlStyle-Width="100px"/>
 
                 <asp:TemplateField HeaderText="Khoa">
                     <EditItemTemplate>
