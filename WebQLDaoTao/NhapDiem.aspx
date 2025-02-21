@@ -13,7 +13,7 @@
         </asp:DropDownList>
     </div>
 
-    <asp:GridView ID="gvKetQua" ShowFooter="true" DataKeyNames="id" runat="server" DataSourceID="odsKetQua" 
+    <asp:GridView ID="gvKetQua" ShowFooter="true" DataKeyNames="id" runat="server" DataSourceID="odsKetQua"
         AutoGenerateColumns="false" CssClass="table table-bordered" Width="70%">
         <Columns>
             <asp:BoundField DataField="MaSV" HeaderText="MaSV" />
@@ -25,7 +25,7 @@
                 <FooterTemplate>
                     <asp:LinkButton ID="btLuu" runat="server" Text="Lưu điểm" CssClass="btn btn-success" OnClick="btLuu_Click">
                         <i class="bi bi-floppy-fill"></i>
-                        </asp:LinkButton>
+                    </asp:LinkButton>
                 </FooterTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Chọn xoá" ItemStyle-HorizontalAlign="Center">
@@ -38,7 +38,7 @@
                 <FooterTemplate>
                     <asp:LinkButton ID="btXoa" OnClientClick="return confirm('Bạn có muốn xóa điểm này không?')" runat="server" Text="Xoá" CssClass="btn btn-success" OnClick="btXoa_Click">
                         <i class="bi bi-trash"></i>
-                        </asp:LinkButton>
+                    </asp:LinkButton>
                 </FooterTemplate>
             </asp:TemplateField>
         </Columns>
