@@ -43,5 +43,14 @@ namespace WebQLDaoTao.Models
             cmd.Parameters.AddWithValue("@diem", diem);
             return cmd.ExecuteNonQuery();
         }
+        public int Delete(int id)
+        {
+            SqlConnection conn = new
+            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("delete from ketqua where id=@id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            return cmd.ExecuteNonQuery();
+        }
     }
 }

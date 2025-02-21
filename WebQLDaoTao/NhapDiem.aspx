@@ -13,7 +13,7 @@
         </asp:DropDownList>
     </div>
 
-    <asp:GridView ID="gvKetQua" DataKeyNames="id" runat="server" DataSourceID="odsKetQua" 
+    <asp:GridView ID="gvKetQua" ShowFooter="true" DataKeyNames="id" runat="server" DataSourceID="odsKetQua" 
         AutoGenerateColumns="false" CssClass="table table-bordered" Width="70%">
         <Columns>
             <asp:BoundField DataField="MaSV" HeaderText="MaSV" />
@@ -21,13 +21,33 @@
             <asp:TemplateField HeaderText="Điểm thi">
                 <ItemTemplate>
                     <asp:TextBox ID="txtDiem" runat="server" Text='<%# Eval("Diem") %>' CssClass="form-control"></asp:TextBox>
-
                 </ItemTemplate>
+                <FooterTemplate>
+                    <asp:LinkButton ID="btLuu" runat="server" Text="Lưu điểm" CssClass="btn btn-success" OnClick="btLuu_Click">
+                        <i class="bi bi-floppy-fill"></i>
+                        </asp:LinkButton>
+                </FooterTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Chọn xoá" ItemStyle-HorizontalAlign="Center">
+                <HeaderTemplate>
+                    <asp:CheckBox ID="chkAll" runat="server" Text="Chọn tất cả" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged" />
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <asp:CheckBox runat="server" ID="cbxChon" />
+                </ItemTemplate>
+                <FooterTemplate>
+                    <asp:LinkButton ID="btXoa" OnClientClick="return confirm('Bạn có muốn xóa điểm này không?')" runat="server" Text="Xoá" CssClass="btn btn-success" OnClick="btXoa_Click">
+                        <i class="bi bi-trash"></i>
+                        </asp:LinkButton>
+                </FooterTemplate>
             </asp:TemplateField>
         </Columns>
+        <EmptyDataTemplate>
+            <div class="alert alert-warning">
+                Không có sinh viên 
+            </div>
+        </EmptyDataTemplate>
     </asp:GridView>
-
-    <asp:Button ID="btLuu" runat="server" Text="Lưu điểm" CssClass="btn btn-success" OnClick="btLuu_Click"/>
 
     <asp:ObjectDataSource ID="odsKetQua" runat="server"
         SelectMethod="getByMaMH" TypeName="WebQLDaoTao.Models.KetQuaDAO">
