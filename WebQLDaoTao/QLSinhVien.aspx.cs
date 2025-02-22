@@ -9,13 +9,10 @@ using WebQLDaoTao.Models;
 
 namespace WebQLDaoTao
 {
-    public partial class QLSinhVien : System.Web.UI.Page
+    public partial class QLSinhVien : SecurePage
     {
         SinhVienDAO svDAO = new SinhVienDAO();
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         protected void btXuLy_Click(object sender, EventArgs e)
         {

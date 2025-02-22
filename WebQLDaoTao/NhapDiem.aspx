@@ -6,7 +6,18 @@
     <h2>NHẬP ĐIỂM THI</h2>
     <hr />
 
-    <div style="padding: 10px">
+    <asp:ObjectDataSource ID="odsKetQua" runat="server"
+        SelectMethod="getByMaMH" TypeName="WebQLDaoTao.Models.KetQuaDAO">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="ddlMonHoc" Name="mamh" PropertyName="SelectedValue" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsMonHoc" runat="server" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.MonHocDAO"></asp:ObjectDataSource>
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <div style="padding: 10px">
         Chọn môn học
         <asp:DropDownList ID="ddlMonHoc" runat="server" DataSourceID="odsMonHoc"
             DataTextField="TenMH" DataValueField="MaMH" AutoPostBack="true">
@@ -20,7 +31,7 @@
             <asp:BoundField DataField="HoTenSV" HeaderText="Họ tên sinh viên" />
             <asp:TemplateField HeaderText="Điểm thi">
                 <ItemTemplate>
-                    <asp:TextBox ID="txtDiem" runat="server" Text='<%# Eval("Diem") %>' CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtDiem" runat="server" Text='<%# Eval("Diem") %>' CssClass="form-control" AutoPostBack="true"></asp:TextBox>
                 </ItemTemplate>
                 <FooterTemplate>
                     <asp:LinkButton ID="btLuu" runat="server" Text="Lưu điểm" CssClass="btn btn-success" OnClick="btLuu_Click">
@@ -49,11 +60,9 @@
         </EmptyDataTemplate>
     </asp:GridView>
 
-    <asp:ObjectDataSource ID="odsKetQua" runat="server"
-        SelectMethod="getByMaMH" TypeName="WebQLDaoTao.Models.KetQuaDAO">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="ddlMonHoc" Name="mamh" PropertyName="SelectedValue" Type="String" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsMonHoc" runat="server" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.MonHocDAO"></asp:ObjectDataSource>
+        </ContentTemplate>
+
+    </asp:UpdatePanel>
+    
+    
 </asp:Content>
