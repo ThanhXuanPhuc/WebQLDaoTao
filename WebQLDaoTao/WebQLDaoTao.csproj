@@ -103,6 +103,8 @@
     <Compile Include="Models\MonHocDAO.cs" />
     <Compile Include="Models\SinhVien.cs" />
     <Compile Include="Models\SinhVienDAO.cs" />
+    <Compile Include="Models\TaiKhoan.cs" />
+    <Compile Include="Models\TaiKhoanDAO.cs" />
     <Compile Include="NhapDiem.aspx.cs">
       <DependentUpon>NhapDiem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

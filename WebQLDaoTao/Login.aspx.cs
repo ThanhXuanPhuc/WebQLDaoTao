@@ -7,12 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace WebQLDaoTao
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : SecurePage
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btLogin_Click(object sender, EventArgs e)
         {
