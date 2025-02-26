@@ -4,22 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebQLDaoTao.Models;
 
 namespace WebQLDaoTao
 {
     public partial class Login : SecurePage
     {
 
+        TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+
         protected void btLogin_Click(object sender, EventArgs e)
         {
-            bool check = true;
-            if (check)
-            {
-                Session["TaiKhoan"] = "doituongtaikhoan";
-                Response.Redirect("Default.aspx");
-            } else
-            {
+            string tenDN = txtUsername.Text.Trim();
+            string matKhau = txtPassword.Text.Trim();
 
+            TaiKhoan tk = taiKhoanDAO.DangNhap(tenDN, matKhau);
+
+            if (tk != null)
+            {
+                Session["TaiKhoan"] = tk;
+                Response.Redirect("Default.aspx");
+            }
+            else
+            {
+                lblMessage.Text = "Tên đăng nhập hoặc mật khẩu không đúng!";
             }
         }
     }

@@ -7,13 +7,21 @@ using System.Web.UI.WebControls;
 
 namespace WebQLDaoTao
 {
-    public partial class SecurePage : System.Web.UI.Page
+    public partial class SecurePage : Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
+
             if (Session["TaiKhoan"] == null)
             {
-                Response.Redirect("Login.aspx");
+                string currentPage = Request.Url.AbsolutePath.ToLower();
+
+                // Tránh vòng lặp redirect trên trang đăng nhập
+                if (!currentPage.EndsWith("login.aspx"))
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
     }

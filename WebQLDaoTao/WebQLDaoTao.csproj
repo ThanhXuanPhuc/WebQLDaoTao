@@ -74,6 +74,7 @@
     <Content Include="QLKhoa.aspx" />
     <Content Include="QLMonHoc.aspx" />
     <Content Include="QLSinhVien.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="SecurePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -133,6 +134,13 @@
     </Compile>
     <Compile Include="QLSinhVien.aspx.designer.cs">
       <DependentUpon>QLSinhVien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="SecurePage.aspx.cs">
       <DependentUpon>SecurePage.aspx</DependentUpon>

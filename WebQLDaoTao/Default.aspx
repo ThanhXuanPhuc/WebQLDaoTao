@@ -6,4 +6,5 @@
         <h3>Chào mừng bạn đến với website quản lý đào tạo</h3>
         <hr />
     </div>
+
 </asp:Content>

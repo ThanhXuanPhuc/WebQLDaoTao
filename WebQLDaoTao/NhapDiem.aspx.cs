@@ -8,7 +8,7 @@ using WebQLDaoTao.Models;
 
 namespace WebQLDaoTao
 {
-    public partial class NhapDiem : System.Web.UI.Page
+    public partial class NhapDiem : SecurePage
     {
         KetQuaDAO kqDAO = new KetQuaDAO();
         protected void Page_Load(object sender, EventArgs e)
@@ -56,7 +56,8 @@ namespace WebQLDaoTao
             }
 
             gvKetQua.DataBind();
-            Response.Write("<script> alert('Xoá thành công') </script>");
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Xóa thành công');", true);
+
         }
 
     }

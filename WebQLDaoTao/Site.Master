@@ -23,34 +23,60 @@
 <body>
     <form id="form1" runat="server">
         <!---Thiet ke menu--->
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">WebDaoTao</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="Default.aspx">Trang chủ</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Danh mục
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="QLMonHoc.aspx">Môn học</a></li>
-                                <li><a href="QLKhoa.aspx">Khoa</a></li>
-                                <li><a href="QLSinhVien.aspx">Sinh viên</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Quản lý điểm thi</a></li>
+       <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Logo và Button Toggle Menu trên mobile -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">WebDaoTao</a>
+        </div>
+
+        <!-- Phần menu chính -->
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="Default.aspx">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Danh mục
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="QLMonHoc.aspx">Môn học</a></li>
+                        <li><a href="QLKhoa.aspx">Khoa</a></li>
+                        <li><a href="QLSinhVien.aspx">Sinh viên</a></li>
                     </ul>
-                </div>
-            </div>
-        </nav>
+                </li>
+                <li><a href="NhapDiem.aspx">Quản lý điểm thi</a></li>
+            </ul>
+
+            <!-- Menu đăng nhập nằm bên phải -->
+            <ul class="nav navbar-nav navbar-right">
+                <asp:PlaceHolder ID="phDangNhap" runat="server">
+                    <li><a href="Login.aspx"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                    <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+                </asp:PlaceHolder>
+
+                <asp:PlaceHolder ID="phTaiKhoan" runat="server" Visible="false">
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-user"></span>
+                            <asp:Label ID="lblUser" runat="server" />
+                        </a>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="btnLogout" runat="server" CssClass="nav-link" OnClick="btnLogout_Click">
+                            <span class="glyphicon glyphicon-log-out"></span> Đăng xuất
+                        </asp:LinkButton>
+                    </li>
+                </asp:PlaceHolder>
+            </ul>
+        </div>
+    </div>
+</nav>
+
         <!--end -->
         <div class="container">
             <div class="row">
