@@ -51,13 +51,13 @@ namespace WebQLDaoTao
         protected global::System.Web.UI.WebControls.TextBox txtRePassword;
 
         /// <summary>
-        /// txtRole control.
+        /// ddlRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRole;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
 
         /// <summary>
         /// lblMessage control.

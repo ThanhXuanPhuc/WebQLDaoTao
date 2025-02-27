@@ -17,19 +17,17 @@ namespace WebQLDaoTao
             string tenDN = txtUsername.Text.Trim();
             string matKhau = txtPassword.Text.Trim();
             string nhapLaiMK = txtRePassword.Text.Trim();
-            string vaiTro = txtRole.Text;
+            string vaiTro = ddlRole.SelectedValue; 
 
-            // Kiểm tra mật khẩu nhập lại
             if (matKhau != nhapLaiMK)
             {
-                lblMessage.Text = "Mật khẩu nhập lại không khớp!";
+                lblMessage.Text = "❌ Mật khẩu nhập lại không khớp!";
                 return;
             }
 
-            // Kiểm tra tài khoản đã tồn tại chưa
             if (taiKhoanDAO.KiemTraTonTai(tenDN))
             {
-                lblMessage.Text = "Tên đăng nhập đã tồn tại!";
+                lblMessage.Text = "❌ Tên đăng nhập đã tồn tại!";
                 return;
             }
 
@@ -37,22 +35,21 @@ namespace WebQLDaoTao
             {
                 TenDN = tenDN,
                 MatKhau = matKhau,
-                VaiTro = vaiTro,
+                VaiTro = vaiTro
             };
 
             if (taiKhoanDAO.Insert(tk) > 0)
             {
                 lblMessage.ForeColor = System.Drawing.Color.Green;
-                lblMessage.Text = "Đăng ký thành công!";
+                lblMessage.Text = "✅ Đăng ký thành công!";
                 Response.Redirect("Login.aspx");
             }
             else
             {
-                lblMessage.Text = "Đăng ký thất bại, vui lòng thử lại.";
+                lblMessage.Text = "❌ Đăng ký thất bại, vui lòng thử lại.";
             }
-            Response.Redirect("Login.aspx");
         }
 
-       
+
     }
 }
