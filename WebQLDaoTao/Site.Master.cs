@@ -16,14 +16,13 @@ namespace WebQLDaoTao
             {
                 if (Session["TaiKhoan"] != null)
                 {
-                    TaiKhoan user = (TaiKhoan)Session["TaiKhoan"]; // Ép kiểu về đối tượng TaiKhoan
-                    lblUser.Text = user.TenDN; // Hoặc user.HoTen nếu có
+                    TaiKhoan user = (TaiKhoan)Session["TaiKhoan"]; 
+                    lblUser.Text = user.TenDN; 
                     phDangNhap.Visible = false;
                     phTaiKhoan.Visible = true;
                 }
                 else
                 {
-                    // Hiển thị nút đăng nhập và đăng ký
                     phDangNhap.Visible = true;
                     phTaiKhoan.Visible = false;
                 }
@@ -32,8 +31,8 @@ namespace WebQLDaoTao
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Session["TaiKhoan"] = null; // Xóa session đăng nhập
-            Response.Redirect("Default.aspx"); // Chuyển về trang đăng nhập
+            Session["TaiKhoan"] = null; 
+            Response.Redirect("Default.aspx"); 
         }
     }
 }

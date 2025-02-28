@@ -13,7 +13,7 @@ namespace WebQLDaoTao
         KetQuaDAO kqDAO = new KetQuaDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            base.Page_Load(sender);
         }
 
         public int Count()

@@ -9,20 +9,15 @@ namespace WebQLDaoTao
 {
     public partial class SecurePage : Page
     {
-        protected override void OnLoad(EventArgs e)
+        protected void Page_Load(object sender)
         {
-            base.OnLoad(e);
-
             if (Session["TaiKhoan"] == null)
             {
-                string currentPage = Request.Url.AbsolutePath.ToLower();
-
                 
-                if (!currentPage.EndsWith("login.aspx"))
-                {
                     Response.Redirect("Login.aspx");
-                }
+                
             }
         }
+
     }
 }

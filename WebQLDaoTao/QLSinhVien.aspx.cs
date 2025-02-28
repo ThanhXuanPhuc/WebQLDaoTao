@@ -14,7 +14,7 @@ namespace WebQLDaoTao
         SinhVienDAO svDAO = new SinhVienDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            base.Page_Load(sender);
         }
 
         protected void btXuLy_Click(object sender, EventArgs e)
