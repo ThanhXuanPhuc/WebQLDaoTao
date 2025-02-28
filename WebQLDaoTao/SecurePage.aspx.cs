@@ -17,7 +17,7 @@ namespace WebQLDaoTao
             {
                 string currentPage = Request.Url.AbsolutePath.ToLower();
 
-                // Tránh vòng lặp redirect trên trang đăng nhập
+                
                 if (!currentPage.EndsWith("login.aspx"))
                 {
                     Response.Redirect("Login.aspx");

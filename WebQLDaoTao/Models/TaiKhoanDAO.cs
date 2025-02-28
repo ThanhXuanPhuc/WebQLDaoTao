@@ -11,7 +11,6 @@ namespace WebQLDaoTao.Models
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString;
 
-        // Hàm kiểm tra đăng nhập
         public TaiKhoan DangNhap(string tenDN, string matKhau)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -24,7 +23,7 @@ namespace WebQLDaoTao.Models
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read()) // Nếu tìm thấy tài khoản
+                if (reader.Read()) 
                 {
                     TaiKhoan tk = new TaiKhoan
                     {

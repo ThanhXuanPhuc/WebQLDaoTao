@@ -22,7 +22,6 @@ namespace WebQLDaoTao
 
             if (tk != null)
             {
-                // Lưu thông tin tài khoản vào Session
                 Session["TaiKhoan"] = tk;
                 Response.Redirect("Default.aspx");
             }

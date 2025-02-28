@@ -24,7 +24,7 @@
         }
 
         .btn-primary {
-            background: #05999E; /* Màu xanh chuyên nghiệp */
+            background: #05999E; 
             border: none;
             padding: 10px 20px;
             font-size: 16px;
@@ -33,8 +33,7 @@
         }
 
             .btn-primary:hover {
-                background: #FFE998; /* Màu đậm hơn khi hover */
-            }
+                background: #FFE998; 
 
         .btn-link {
             color: #007bff;
