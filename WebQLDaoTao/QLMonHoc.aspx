@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
-    <h3>Thiết kế nội dung trang quản lý môn học</h3>
+    <div class="alert alert-info">Thiết kế nội dung trang quản lý môn học</div>
+    <hr />
     <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm mới môn học</button>
 

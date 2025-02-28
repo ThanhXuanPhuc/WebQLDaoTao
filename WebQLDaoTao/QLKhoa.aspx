@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
     <div class="alert alert-info">Nội dung trang quản lý Khoa</div>
-
+    <hr />
 
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm mới môn học</button>
     <%--Thêm mới--%>

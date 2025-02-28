@@ -13,48 +13,48 @@ namespace WebQLDaoTao.Models
 
         public TaiKhoan DangNhap(string tenDN, string matKhau)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "SELECT * FROM TaiKhoan WHERE TenDangNhap = @TenDangNhap AND MatKhau = @MatKhau";
+            SqlConnection conn = new
+            SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            string query = "SELECT * FROM TaiKhoan WHERE TenDangNhap = @TenDangNhap AND MatKhau = @MatKhau";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@TenDangNhap", tenDN);
                 cmd.Parameters.AddWithValue("@MatKhau", matKhau);
 
                 conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+                SqlDataReader rd = cmd.ExecuteReader();
 
-                if (reader.Read()) 
+                if (rd.Read()) 
                 {
                     TaiKhoan tk = new TaiKhoan
                     {
-                        TenDN = reader["TenDangNhap"].ToString(),
-                        MatKhau = reader["MatKhau"].ToString(),
-                        VaiTro = reader["VaiTro"].ToString()
+                        TenDN = rd["TenDangNhap"].ToString(),
+                        MatKhau = rd["MatKhau"].ToString(),
+                        VaiTro = rd["VaiTro"].ToString()
                     };
                     return tk;
                 }
                 return null;
-            }
+            
         }
 
         public bool KiemTraTonTai(string tenDangNhap)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
+                SqlConnection conn = new
+                SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM TaiKhoan WHERE TenDangNhap = @TenDangNhap", conn);
                 cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
                 int count = (int)cmd.ExecuteScalar();
                 return count > 0;
-            }
+            
         }
         public int Insert(TaiKhoan tk)
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString))
-                {
-                    conn.Open();
+                SqlConnection conn = new
+                SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+                conn.Open();
                     SqlCommand cmd = new SqlCommand("INSERT INTO TaiKhoan (TenDangNhap, MatKhau, VaiTro) VALUES (@TenDangNhap, @MatKhau, @VaiTro)", conn);
                     cmd.Parameters.AddWithValue("@TenDangNhap", tk.TenDN);
                     cmd.Parameters.AddWithValue("@MatKhau", tk.MatKhau);
@@ -63,7 +63,7 @@ namespace WebQLDaoTao.Models
                     int result = cmd.ExecuteNonQuery();
                     Console.WriteLine("Số dòng được thêm vào: " + result);
                     return result;
-                }
+                
             }
             catch (Exception ex)
             {

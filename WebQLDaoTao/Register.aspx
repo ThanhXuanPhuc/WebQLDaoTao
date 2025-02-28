@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <style>
         body {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
             height: 100vh;
             display: flex;
             align-items: center;
@@ -71,7 +71,7 @@
                 <label>Vai Trò:</label>
                 <asp:DropDownList ID="ddlRole" runat="server" CssClass="form-control">
                     <asp:ListItem Value="Sinh viên">Sinh viên</asp:ListItem>
-                    <asp:ListItem Value="Giảng viên" Selected="True">Giảng viên</asp:ListItem>
+                    <asp:ListItem Value="CBĐT" Selected="True">Cán bộ đào tạo</asp:ListItem>
                 </asp:DropDownList>
             </div>
 

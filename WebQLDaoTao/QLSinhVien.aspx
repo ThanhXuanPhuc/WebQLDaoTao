@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
-    <h3>Nội dung trang quản lí sinh viên</h3>
+    <div class="alert alert-info">Nội dung trang quản lí sinh viên</div>
     <hr />
     <asp:Panel ID="Panel1" runat="server" ScrollBars="Both">
 
