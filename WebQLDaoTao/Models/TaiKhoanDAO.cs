@@ -60,10 +60,8 @@ namespace WebQLDaoTao.Models
                     cmd.Parameters.AddWithValue("@MatKhau", tk.MatKhau);
                     cmd.Parameters.AddWithValue("@VaiTro", tk.VaiTro);
 
-                    int result = cmd.ExecuteNonQuery();
-                    Console.WriteLine("Số dòng được thêm vào: " + result);
-                    return result;
-                
+                    return cmd.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
