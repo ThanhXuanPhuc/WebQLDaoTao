@@ -15,6 +15,13 @@ namespace WebQLDaoTao
             {
                Response.Redirect("Login.aspx");
             }
+            string role = Session["VaiTro"] as string;
+
+            if (role != "CBĐT")
+            {
+                Response.Write("<script>alert('Bạn không có quyền truy cập trang này!'); window.location='Login.aspx';</script>");
+                
+            }
         }
 
     }

@@ -23,6 +23,7 @@ namespace WebQLDaoTao
             if (tk != null)
             {
                 Session["TaiKhoan"] = tk;
+                Session["VaiTro"] = tk.VaiTro;
                 Response.Redirect("Default.aspx");
             }
             else
