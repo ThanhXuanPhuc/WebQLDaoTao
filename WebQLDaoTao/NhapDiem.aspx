@@ -58,6 +58,7 @@
                 Không có sinh viên 
             </div>
         </EmptyDataTemplate>
+        <HeaderStyle BackColor="#0066cc" ForeColor="#ffffff" />
     </asp:GridView>
 
         </ContentTemplate>

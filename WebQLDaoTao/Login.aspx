@@ -50,11 +50,11 @@
             <h2 class="text-center">Đăng Nhập</h2>
             <div class="form-group">
                 <label>Tên đăng nhập:</label>
-                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Enter username"></asp:TextBox>
+                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="abc (SV) - phucthanh (CBĐT)"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Mật khẩu:</label>
-                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Enter password"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="123"></asp:TextBox>
             </div>
             <asp:Label ID="lblMessage" runat="server" CssClass="text-danger"></asp:Label>
             <div class="form-group text-center">

@@ -63,6 +63,7 @@
                 </asp:TemplateField>
 
         </Columns>
+        <HeaderStyle BackColor="#0066cc" ForeColor="#ffffff" />
     </asp:GridView>
 
 <asp:ObjectDataSource ID="ods_Khoa" runat="server"

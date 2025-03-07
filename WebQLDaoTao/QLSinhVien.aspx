@@ -119,6 +119,7 @@
                     </EditItemTemplate>
                 </asp:TemplateField>
             </Columns>
+            <HeaderStyle BackColor="#0066cc" ForeColor="#ffffff" />
         </asp:GridView>
     </asp:Panel>
 
