@@ -32,6 +32,12 @@
             <asp:TemplateField HeaderText="Điểm thi">
                 <ItemTemplate>
                     <asp:TextBox ID="txtDiem" runat="server" Text='<%# Eval("Diem") %>' CssClass="form-control" AutoPostBack="true"></asp:TextBox>
+                    <asp:RangeValidator ID="rvDiem" runat="server"
+                        ControlToValidate="txtDiem" 
+                        MinimumValue="1" MaximumValue="10"
+                         Type="Double"
+                        ErrorMessage="Điểm từ 0 đến 10">
+                    </asp:RangeValidator>
                 </ItemTemplate>
                 <FooterTemplate>
                     <asp:LinkButton ID="btLuu" runat="server" Text="Lưu điểm" CssClass="btn btn-success" OnClick="btLuu_Click">
